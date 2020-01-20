@@ -115,7 +115,24 @@ static void click(GtkWidget *widget,gpointer data)
 		gtk_label_set_text(GTK_LABEL(label),"Alert: Wrong!!");
 	}
 	else
-		gtk_label_set_text(GTK_LABEL(label),"");	
+	{
+		int flag=1;
+		for(int i=0;i<9;i++)
+		{
+			for(int j=0;j<9;j++)
+			{
+				if(sudoku[i][j]==0)
+				{
+					flag=0;
+					break;
+				}
+			}
+		}
+		if(flag)
+			gtk_label_set_text(GTK_LABEL(label),"CONGRATULATION!!");	
+		else
+			gtk_label_set_text(GTK_LABEL(label),"");	
+	}
 }
 
 
